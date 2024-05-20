@@ -25,10 +25,8 @@ public class VideoController {
     private CandidateService candidateService;
 
     private final String bucketName = "dart-app1";
-
     private final String accessKey = ""; // Replace with your access key
-    private final String secretKey = ""; // Replace with your secret key
-    
+    private final String secretAceessKey = ""; // Replace with your secret key
     
     
     @PostMapping("/video/upload")
@@ -36,6 +34,7 @@ public class VideoController {
         if (videoFile.isEmpty()) {
             return ResponseEntity.badRequest().body("Video file is empty");
         }
+        System.out.println("Video controller accesed");
 
         String key = videoFile.getOriginalFilename();
         System.out.println(key);
@@ -45,7 +44,8 @@ public class VideoController {
         int candidateId=Integer.parseInt(candidateId1);
         int questionId=Integer.parseInt(questionId1);
 
-        BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+        BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretAceessKey);
+
         AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(credentials))
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("s3.amazonaws.com", "ap-southeast-2")) // Modify endpoint according to your region

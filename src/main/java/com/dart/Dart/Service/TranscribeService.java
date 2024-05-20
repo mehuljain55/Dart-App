@@ -25,16 +25,12 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
-
-
 @Service
 public class TranscribeService {
-    
-    
     private final String accessKey = ""; // Replace with your access key
     private final String secretKey = ""; // Replace with your secret key
-    private final String bucketName = "dart-app1";
-       
+    private final String bucketName = "";
+
     
     
     private String fetchTranscript(String transcriptUri) {
