@@ -32,6 +32,7 @@ public class TranscribeService {
     private final String bucketName = "";
 
     
+    
     private String fetchTranscript(String transcriptUri) {
         StringBuilder transcript = new StringBuilder();
         try {
